@@ -19,10 +19,6 @@ class ConferenceViewModel : ViewModel() {
 
     val isMobile: Boolean = deviceInteractor.isMobile
 
-    init {
-        println("ConferenceViewModel init, hashCode: ${hashCode()}")
-    }
-
     /**
      * Переключение (не установка enable/disable) потому, что интерфейс не должен
      * заботиться о текущем состоянии, это как раз ответственность этого класса
