@@ -27,7 +27,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jazz.simple.R
 import com.example.jazz.simple.model.EmojiReaction
 import com.example.jazz.simple.ui.core.BottomSheetFrameView
@@ -35,6 +34,7 @@ import com.example.jazz.simple.ui.core.BottomSheetHeaderComposition
 import com.example.jazz.simple.ui.core.CloseDialogHeaderButton
 import com.example.jazz.simple.ui.core.DialogHeaderButton
 import com.example.jazz.simple.ui.theme.BottomSheetBackground
+import com.example.jazz.simple.ui.utils.scopedViewModel
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
@@ -42,7 +42,7 @@ import kotlin.random.Random
 @Composable
 @Preview(widthDp = 375, heightDp = 700)
 fun ExtendedControlsDialog(
-    vm: ExtendedControlsViewModel = viewModel(),
+    vm: ExtendedControlsViewModel = scopedViewModel(),
     onDismiss: () -> Unit = {},
 ) {
     val state by vm.uiStateFlow.collectAsState()

@@ -1,5 +1,6 @@
 package com.example.jazz.simple.ui.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.jazz.simple.domain.DeeplinkInteractor.DeeplinkState
@@ -38,6 +39,7 @@ class MainViewModel : ViewModel() {
         get() = uiStateFlow.value.mode
 
     init {
+        Log.d("MainViewModel", "init")
         errorInteractor.errorFlow
             .onEach(::onError)
             .launchIn(viewModelScope)
@@ -112,6 +114,10 @@ class MainViewModel : ViewModel() {
 
     fun onBack() {
         //TODO("Not yet implemented")
+    }
+
+    override fun onCleared() {
+        Log.d("MainViewModel", "cleared")
     }
 
     data class UiState(

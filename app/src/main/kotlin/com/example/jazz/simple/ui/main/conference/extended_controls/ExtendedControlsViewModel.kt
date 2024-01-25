@@ -1,5 +1,6 @@
 package com.example.jazz.simple.ui.main.conference.extended_controls
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.jazz.simple.model.EmojiReaction
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,6 +12,10 @@ class ExtendedControlsViewModel : ViewModel() {
     private val _uiStateFlow = MutableStateFlow(UiState())
     val uiStateFlow: StateFlow<UiState> = _uiStateFlow.asStateFlow()
 
+    init {
+        Log.d("ExtendedControlsViewModel", "init ${hashCode()}")
+    }
+
     fun onSettingsClick() {
     }
 
@@ -18,6 +23,11 @@ class ExtendedControlsViewModel : ViewModel() {
     }
 
     fun onMenuItemClick(menuItem: MenuItem) {
+        Log.d("ExtendedControlsViewModel", "click menuItem: ${menuItem::class.java.simpleName}")
+    }
+
+    override fun onCleared() {
+        Log.d("ExtendedControlsViewModel", "onCleared")
     }
 
     data class UiState(
